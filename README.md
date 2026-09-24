@@ -45,6 +45,16 @@ cd lingbot-vla-v2
 bash tools/create_train_env.sh
 ```
 
+For a machine without an NVIDIA GPU, create or resume a CPU-only development
+environment instead. This installs the regular Python dependencies but skips
+CUDA validation and FlashAttention. It is suitable for imports, configuration,
+data preparation, and lightweight CPU checks; training and practical VLA
+inference require a CUDA-capable GPU.
+
+```bash
+bash tools/create_train_env.sh --cpu --resume
+```
+
 By default, the script installs `flash-attn==2.8.3` from pip. If you already have a matching local wheel, pass it explicitly:
 
 ```bash
